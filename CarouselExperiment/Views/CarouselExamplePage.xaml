@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    rainbows:DebugRainbow.IsDebug="true" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    x:Class="CarouselExperiment.Views.CarouselExamplePage"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:rainbows="clr-namespace:Xamarin.Forms.DebugRainbows;assembly=Xamarin.Forms.DebugRainbows"
+    xmlns:viewModels="clr-namespace:CarouselExperiment.ViewModels">
+    <ContentPage.BindingContext>
+        <viewModels:CarouselExampleViewModel
+            x:Key="ViewModel" />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="Red">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="100" />
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="100" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label
+                Text="My Carousel" />
+            <CarouselView
+                x:Name="TheCarousel"
+                BackgroundColor="#55555555"
+                Grid.RowSpan="3"
+                ItemsSource="{Binding Slides}">
+                <CarouselView.ItemsLayout>
+                    <GridItemsLayout
+                        SnapPointsType="MandatorySingle"
+                        SnapPointsAlignment="Center"
+                        Orientation="Horizontal" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            WidthRequest="{Binding Source={x:Reference TheCarousel}, Path=Width}"
+                            Padding="0"
+                            Margin="0"
+                            BorderColor="Transparent"
+                            BackgroundColor="#55555555"
+                            CornerRadius="3"
+                            HasShadow="False">
+                            <Grid
+                                Margin="20,50,20,50"
+                                
+                                HorizontalOptions="FillAndExpand"
+                                BackgroundColor="White"
+                               >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
+                                        Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition
+                                        Height="*" />
+                                    <RowDefinition
+                                        Height="*" />
+                                </Grid.RowDefinitions>
+                                <Label
+                                    Text="   ijklmiop[sdsssgfg"
+                                    FontSize="24" />
+                                <Label
+                                    Text="{Binding Paragraph}"
+                                    Grid.Row="1" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
